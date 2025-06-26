@@ -1,4 +1,4 @@
-package com.example.audiobookscodingchallenge.ui.theme
+package com.example.audiobookscodingchallenge.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
