@@ -1,5 +1,6 @@
-package com.example.audiobookscodingchallenge.data.remote.dto
+package com.example.audiobookscodingchallenge.data.remote
 
+import com.example.audiobookscodingchallenge.data.remote.dto.PodcastDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 

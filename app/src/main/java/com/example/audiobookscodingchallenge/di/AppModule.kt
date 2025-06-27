@@ -1,6 +1,6 @@
 package com.example.audiobookscodingchallenge.di
 
-import com.example.audiobookscodingchallenge.data.remote.dto.PodcastApiService
+import com.example.audiobookscodingchallenge.data.remote.PodcastApiService
 import com.example.audiobookscodingchallenge.utils.Constants
 import dagger.Module
 import dagger.Provides

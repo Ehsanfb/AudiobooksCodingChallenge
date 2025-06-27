@@ -1,7 +1,8 @@
-package com.example.audiobookscodingchallenge.data.remote.dto
+package com.example.audiobookscodingchallenge.data.remote.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.example.audiobookscodingchallenge.data.remote.PodcastApiService
 import com.example.audiobookscodingchallenge.domain.model.Podcast
 
 class PodcastPagingSource(
