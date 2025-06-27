@@ -1,6 +1,8 @@
 package com.example.audiobookscodingchallenge.di
 
 import com.example.audiobookscodingchallenge.data.remote.PodcastApiService
+import com.example.audiobookscodingchallenge.data.repository.PodcastRepository
+import com.example.audiobookscodingchallenge.domain.repository.PodcastRepositoryImpl
 import com.example.audiobookscodingchallenge.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -22,6 +24,11 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(PodcastApiService::class.java)
+    }
+
+    @Provides
+    fun provideRepository(apiService: PodcastApiService): PodcastRepository {
+        return PodcastRepositoryImpl(apiService)
     }
 
 
