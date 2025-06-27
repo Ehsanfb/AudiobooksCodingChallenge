@@ -1,7 +1,7 @@
 package com.example.audiobookscodingchallenge.data.remote.dto
 
 
-import com.example.audiobookscodingchallenge.domain.model.PodcastModel
+import com.example.audiobookscodingchallenge.domain.model.Podcast
 import com.google.gson.annotations.SerializedName
 
 data class PodcastDto(
@@ -19,12 +19,12 @@ data class PodcastDto(
     val pageNumber: Int,
     @SerializedName("parent_id")
     val parentId: Int,
-    val podcasts: List<Podcast>,
+    val podcasts: List<PodcastModel>,
     @SerializedName("previous_page_number")
     val previousPageNumber: Int,
     val total: Int
 ) {
-    data class Podcast(
+    data class PodcastModel(
         @SerializedName("audio_length_sec")
         val audioLengthSec: Int,
         val country: String,
@@ -103,8 +103,8 @@ data class PodcastDto(
             val sponsors: Boolean
         )
 
-        fun toPodcastModel(): PodcastModel {
-            return PodcastModel(
+        fun toPodcast(): Podcast {
+            return Podcast(
                 id = id,
                 title = title,
                 publisher = publisher,
