@@ -1,5 +1,6 @@
 package com.example.audiobookscodingchallenge.presentation.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -28,11 +29,12 @@ import com.example.audiobookscodingchallenge.R
 import com.example.audiobookscodingchallenge.domain.model.Podcast
 
 @Composable
-fun PodcastItem(podcast: Podcast) {
+fun PodcastItem(podcast: Podcast, onClick: () -> Unit) {
 
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .clickable { onClick() }
             .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -85,7 +87,8 @@ private fun PodcastItemPreview() {
             publisher = "Publisher1",
             description = "This is Podcast1",
             thumbnail = "https://cdn-images-3.listennotes.com/podcasts/worklife-with-adam-grant-ted-KgaXjFPEoVc.300x300.jpg"
-        )
+        ),
+        {}
     )
 
 }

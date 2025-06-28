@@ -8,3 +8,4 @@ val ColorPrimary = Color(0xFF4CAF50)
 val TextWhite = Color(0xFFEEEEEE)
 
 val ErrorColor = Color.Red
+val ButtonColor = Color.Red
