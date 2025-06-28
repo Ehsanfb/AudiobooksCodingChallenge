@@ -121,7 +121,7 @@ fun PodcastDetailScreen(
 
             Button(
                 colors = ButtonDefaults.buttonColors(containerColor = ButtonColor),
-                onClick = {},
+                onClick = { viewModel.toggleFavourite() },
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Text(

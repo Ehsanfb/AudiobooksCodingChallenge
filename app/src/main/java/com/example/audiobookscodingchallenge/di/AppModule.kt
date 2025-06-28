@@ -33,8 +33,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRepository(apiService: PodcastApiService): PodcastRepository {
-        return PodcastRepositoryImpl(apiService)
+    fun provideRepository(apiService: PodcastApiService, dao: PodcastDao): PodcastRepository {
+        return PodcastRepositoryImpl(apiService, dao)
     }
 
     @Provides
