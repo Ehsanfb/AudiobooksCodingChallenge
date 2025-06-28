@@ -27,9 +27,11 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.audiobookscodingchallenge.R
 import com.example.audiobookscodingchallenge.domain.model.Podcast
+import com.example.audiobookscodingchallenge.presentation.ui.theme.ButtonColor
+import com.example.audiobookscodingchallenge.utils.Strings
 
 @Composable
-fun PodcastItem(podcast: Podcast, onClick: () -> Unit) {
+fun PodcastItem(podcast: Podcast, onClick: () -> Unit, isFavourited: Boolean) {
 
     Row(
         modifier = Modifier
@@ -70,6 +72,15 @@ fun PodcastItem(podcast: Podcast, onClick: () -> Unit) {
                 fontStyle = FontStyle.Italic,
                 maxLines = 1, overflow = TextOverflow.Ellipsis
             )
+
+            if (isFavourited) {
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = Strings.FavouritedButtonText,
+                    color = ButtonColor,
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
         }
 
     }
@@ -88,7 +99,8 @@ private fun PodcastItemPreview() {
             description = "This is Podcast1",
             thumbnail = "https://cdn-images-3.listennotes.com/podcasts/worklife-with-adam-grant-ted-KgaXjFPEoVc.300x300.jpg"
         ),
-        {}
+        {},
+        isFavourited = true
     )
 
 }

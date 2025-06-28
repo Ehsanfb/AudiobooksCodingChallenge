@@ -44,4 +44,8 @@ class PodcastRepositoryImpl @Inject constructor(
     override fun isFavourited(id: String): Flow<Boolean> {
         return dao.isFavourite(id)
     }
+
+    override fun getAllFavourites(): Flow<List<FavouritePodcastEntity>> {
+        return dao.getAllFavourites()
+    }
 }

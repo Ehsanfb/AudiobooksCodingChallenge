@@ -13,11 +13,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -58,6 +56,7 @@ fun PodcastDetailScreen(
     podcast?.let { viewModel.setPodcast(it) }
 
     val selectedPodcast by viewModel.podcast.collectAsState()
+    val isFavourite by viewModel.isFavourited.collectAsState()
 
     selectedPodcast?.let {
 
@@ -125,7 +124,7 @@ fun PodcastDetailScreen(
                 shape = RoundedCornerShape(12.dp)
             ) {
                 Text(
-                    Strings.FavouriteButtonText,
+                    text = if (isFavourite) Strings.FavouritedButtonText else Strings.FavouriteButtonText,
                     color = Color.White,
                     style = MaterialTheme.typography.bodyLarge
                 )
