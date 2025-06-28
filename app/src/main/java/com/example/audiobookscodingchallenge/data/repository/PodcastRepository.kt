@@ -6,4 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface PodcastRepository {
     fun getPodcastsPaged(): Flow<PagingData<Podcast>>
+    suspend fun toggleFavourite(podcast: Podcast)
+    fun isFavourited(id: String): Flow<Boolean>
 }
