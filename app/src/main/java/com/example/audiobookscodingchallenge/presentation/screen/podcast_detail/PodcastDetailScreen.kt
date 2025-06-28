@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
@@ -34,6 +36,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.text.HtmlCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
@@ -63,9 +66,19 @@ fun PodcastDetailScreen(
 
     selectedPodcast?.let {
 
+        val spannedDescription = remember(it.description) {
+            HtmlCompat.fromHtml(
+                it.description,
+                HtmlCompat.FROM_HTML_MODE_LEGACY
+            )
+        }
+
+        val scrollState = rememberScrollState()
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .verticalScroll(scrollState)
                 .padding(16.dp)
                 .padding(top = 8.dp),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -101,8 +114,7 @@ fun PodcastDetailScreen(
                 text = it.publisher,
                 color = Color.Gray,
                 style = MaterialTheme.typography.bodyMedium,
-                fontStyle = FontStyle.Italic,
-                maxLines = 1, overflow = TextOverflow.Ellipsis
+                fontStyle = FontStyle.Italic
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -136,7 +148,7 @@ fun PodcastDetailScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = it.description,
+                text = spannedDescription.toString(),
                 style = MaterialTheme.typography.bodyMedium.copy(lineHeight = 20.sp),
                 textAlign = TextAlign.Center,
                 color = Color.Gray
