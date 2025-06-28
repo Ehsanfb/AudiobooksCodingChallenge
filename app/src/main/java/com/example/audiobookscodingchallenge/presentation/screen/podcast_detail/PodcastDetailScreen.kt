@@ -104,8 +104,10 @@ fun PodcastDetailScreen(
             Text(
                 text = it.title,
                 style = MaterialTheme.typography.headlineMedium,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp),
+                textAlign = TextAlign.Center
             )
 
             Spacer(modifier = Modifier.height(4.dp))
@@ -114,7 +116,11 @@ fun PodcastDetailScreen(
                 text = it.publisher,
                 color = Color.Gray,
                 style = MaterialTheme.typography.bodyMedium,
-                fontStyle = FontStyle.Italic
+                fontStyle = FontStyle.Italic,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp),
+                textAlign = TextAlign.Center
             )
 
             Spacer(modifier = Modifier.height(24.dp))
