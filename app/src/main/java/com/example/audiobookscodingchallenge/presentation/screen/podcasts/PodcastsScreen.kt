@@ -49,6 +49,7 @@ fun PodcastsScreen(
 
                 val podcast = podcastPagingItems[index]
                 podcast?.let {
+                    // Check if this podcast is in the user's favourites
                     val isFavourited = favourites.any { fav -> fav.id == it.id }
                     PodcastItem(
                         podcast = it,

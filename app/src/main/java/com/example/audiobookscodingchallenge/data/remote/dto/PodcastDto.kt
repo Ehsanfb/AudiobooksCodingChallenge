@@ -103,6 +103,7 @@ data class PodcastDto(
             val sponsors: Boolean
         )
 
+        // Maps the API model to the domain model used in the app.
         fun toPodcast(): Podcast {
             return Podcast(
                 id = id,

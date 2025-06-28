@@ -34,6 +34,7 @@ class MainActivity : ComponentActivity() {
                             PodcastsScreen(
                                 onItemClick = { podcast ->
 
+                                    // Save the selected podcast to navigate to its detail screen
                                     navController.currentBackStackEntry?.savedStateHandle?.set(
                                         "podcast",
                                         podcast

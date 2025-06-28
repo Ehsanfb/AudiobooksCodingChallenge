@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import com.example.audiobookscodingchallenge.data.repository.PodcastRepository
 import com.example.audiobookscodingchallenge.domain.use_case.GetPodcastsUseCase
-import com.example.audiobookscodingchallenge.domain.use_case.IsFavouritedUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

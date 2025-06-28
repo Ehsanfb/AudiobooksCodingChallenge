@@ -19,6 +19,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -53,7 +54,9 @@ fun PodcastDetailScreen(
         navController.previousBackStackEntry?.savedStateHandle?.get<Podcast>("podcast")
     }
 
-    podcast?.let { viewModel.setPodcast(it) }
+    LaunchedEffect(podcast) {
+        podcast?.let { viewModel.setPodcast(it) }
+    }
 
     val selectedPodcast by viewModel.podcast.collectAsState()
     val isFavourite by viewModel.isFavourited.collectAsState()

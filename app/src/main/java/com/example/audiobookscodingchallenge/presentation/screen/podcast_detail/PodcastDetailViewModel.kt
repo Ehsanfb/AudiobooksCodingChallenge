@@ -19,6 +19,11 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * ViewModel for the podcast details screen.
+ * Handles favorite toggling and state.
+ */
+
 @HiltViewModel
 class PodcastDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
